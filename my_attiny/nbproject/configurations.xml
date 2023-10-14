@@ -5,6 +5,18 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ECUAL" displayName="ECUAL" projectFiles="true">
+        <logicalFolder name="ECU_BUTTON" displayName="ECU_BUTTON" projectFiles="true">
+          <itemPath>ECUAL/ECU_BUTTON/ecu_button.h</itemPath>
+          <itemPath>ECUAL/ECU_BUTTON/ecu_button_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ECU_LED" displayName="ECU_LED" projectFiles="true">
+          <itemPath>ECUAL/ECU_LED/ecu_led.h</itemPath>
+          <itemPath>ECUAL/ECU_LED/ecu_led_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ECU_RELAY" displayName="ECU_RELAY" projectFiles="true">
+          <itemPath>ECUAL/ECU_RELAY/ecu_relay.h</itemPath>
+          <itemPath>ECUAL/ECU_RELAY/ecu_relay_cfg.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -26,6 +38,15 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ECUAL" displayName="ECUAL" projectFiles="true">
+        <logicalFolder name="ECU_BUTTON" displayName="ECU_BUTTON" projectFiles="true">
+          <itemPath>ECUAL/ECU_BUTTON/ecu_button.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ECU_LED" displayName="ECU_LED" projectFiles="true">
+          <itemPath>ECUAL/ECU_LED/ecu_led.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="ECU_RELAY" displayName="ECU_RELAY" projectFiles="true">
+          <itemPath>ECUAL/ECU_RELAY/ecu_relay.c</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -172,6 +193,11 @@
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="lastid" value=""/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
         <property key="oscillator.frequency" value="1"/>
@@ -641,6 +667,11 @@
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="lastid" value=""/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
         <property key="oscillator.frequency" value="1"/>

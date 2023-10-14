@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c
+SOURCEFILES_QUOTED_IF_SPACED=ECUAL/ECU_LED/ecu_led.c MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c ECUAL/ECU_RELAY/ecu_relay.c ECUAL/ECU_BUTTON/ecu_button.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/MCAL/GPIO/hal_gpio.o ${OBJECTDIR}/MCAL/device_config.o ${OBJECTDIR}/application.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.o.d ${OBJECTDIR}/MCAL/device_config.o.d ${OBJECTDIR}/application.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o ${OBJECTDIR}/MCAL/device_config.o ${OBJECTDIR}/application.o ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o.d ${OBJECTDIR}/MCAL/device_config.o.d ${OBJECTDIR}/application.o.d ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/MCAL/GPIO/hal_gpio.o ${OBJECTDIR}/MCAL/device_config.o ${OBJECTDIR}/application.o
+OBJECTFILES=${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o ${OBJECTDIR}/MCAL/device_config.o ${OBJECTDIR}/application.o ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o
 
 # Source Files
-SOURCEFILES=MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c
+SOURCEFILES=ECUAL/ECU_LED/ecu_led.c MCAL/GPIO/hal_gpio.c MCAL/device_config.c application.c ECUAL/ECU_RELAY/ecu_relay.c ECUAL/ECU_BUTTON/ecu_button.c
 
 
 
@@ -88,6 +88,12 @@ MP_PROCESSOR_OPTION=ATtiny85
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o: ECUAL/ECU_LED/ecu_led.c  .generated_files/flags/default/abfe64c816bedfe3443f40ef510a40e1d6d6bb86 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_LED" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o -o ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o ECUAL/ECU_LED/ecu_led.c 
+	
 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o: MCAL/GPIO/hal_gpio.c  .generated_files/flags/default/6547911acf2e65a551e6632b66d21303a157a256 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/MCAL/GPIO" 
 	@${RM} ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o.d 
@@ -106,7 +112,25 @@ ${OBJECTDIR}/application.o: application.c  .generated_files/flags/default/5b3cb7
 	@${RM} ${OBJECTDIR}/application.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/application.o.d" -MT "${OBJECTDIR}/application.o.d" -MT ${OBJECTDIR}/application.o -o ${OBJECTDIR}/application.o application.c 
 	
+${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o: ECUAL/ECU_RELAY/ecu_relay.c  .generated_files/flags/default/be76d368d07019f6ce1302515647b7106cde5cf5 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_RELAY" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o -o ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o ECUAL/ECU_RELAY/ecu_relay.c 
+	
+${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o: ECUAL/ECU_BUTTON/ecu_button.c  .generated_files/flags/default/d67b55ba535d95fd6903ed3740a66bed82f34e54 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_BUTTON" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o -o ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o ECUAL/ECU_BUTTON/ecu_button.c 
+	
 else
+${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o: ECUAL/ECU_LED/ecu_led.c  .generated_files/flags/default/317afa2a278008c7032a06b82231153582d38ec6 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_LED" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o -o ${OBJECTDIR}/ECUAL/ECU_LED/ecu_led.o ECUAL/ECU_LED/ecu_led.c 
+	
 ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o: MCAL/GPIO/hal_gpio.c  .generated_files/flags/default/7e19cb096531165f8d823cfdf2507b2f771706a8 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/MCAL/GPIO" 
 	@${RM} ${OBJECTDIR}/MCAL/GPIO/hal_gpio.o.d 
@@ -124,6 +148,18 @@ ${OBJECTDIR}/application.o: application.c  .generated_files/flags/default/adf798
 	@${RM} ${OBJECTDIR}/application.o.d 
 	@${RM} ${OBJECTDIR}/application.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/application.o.d" -MT "${OBJECTDIR}/application.o.d" -MT ${OBJECTDIR}/application.o -o ${OBJECTDIR}/application.o application.c 
+	
+${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o: ECUAL/ECU_RELAY/ecu_relay.c  .generated_files/flags/default/97b7cf640cda57a77c93630265cd1080e56051b2 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_RELAY" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o -o ${OBJECTDIR}/ECUAL/ECU_RELAY/ecu_relay.o ECUAL/ECU_RELAY/ecu_relay.c 
+	
+${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o: ECUAL/ECU_BUTTON/ecu_button.c  .generated_files/flags/default/6aa57c23ac8589b5637a54338994d8eb8aad5fb1 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/ECUAL/ECU_BUTTON" 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d 
+	@${RM} ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF "${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d" -MT "${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o.d" -MT ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o -o ${OBJECTDIR}/ECUAL/ECU_BUTTON/ecu_button.o ECUAL/ECU_BUTTON/ecu_button.c 
 	
 endif
 

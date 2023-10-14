@@ -23,42 +23,40 @@
 #define SET_BIT(REG, BIT_POSN)     (REG |= (BIT_MASK<<BIT_POSN))
 #define CLEAR_BIT(REG, BIT_POSN)   (REG &= ~(BIT_MASK<<BIT_POSN))
 #define TOGGLE_BIT(REG, BIT_POSN)  (REG ^= (BIT_MASK<<BIT_POSN))
-#define READ_BIT(REG, BIT_POSN)    ((REG >> BIT_POSN) & BIT_MASK)
+#define READ_BIT(REG, BIT_POSN)    (((REG) >> (BIT_POSN)) & (BIT_MASK));
+#define Write_Bit(REG, BIT_POSN, Bit_Val) ((Bit_Val) ? SET_BIT(REG, BIT_POSN) : CLEAR_BIT(REG, BIT_POSN))
 
 /*section : Data Type Declarations */
-typedef enum
-{
+typedef enum {
     LOW,
     HIGH
-}logic_t;
+} logic_t;
 
-typedef enum
-{
-   OUTPUT,
-   INPUT
-}direction_t;
+typedef enum {
+    OUTPUT,
+    INPUT,
+    INPUT_PULLUP
+} direction_t;
 
-typedef enum
-{
+typedef enum {
     pin0,
     pin1,
     pin2,
     pin3,
     pin4,
     pin5
-}pin_index_t;
+} pin_index_t;
 
-typedef struct
-{
-    uint8 pin       :3; /* @ref pin_index_t */
-    uint8 logic     :1; /* @ref logic_t */
-    uint8 direction :1; /* @ref direction_t */
-}pin_config_t;
+typedef struct {
+    uint8 pin : 5; /* @ref pin_index_t */
+    uint8 logic : 1; /* @ref logic_t */
+    uint8 direction : 2; /* @ref direction_t */
+} pin_config_t;
 /*section : Function Declarations */
 Std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config);
-Std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config,pin_config_t *direction_status);
-Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config,logic_t logic);
-Std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config,logic_t *logic);
+Std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config, direction_t *direction_status);
+Std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config, logic_t logic);
+Std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config, logic_t *logic);
 Std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
 
 

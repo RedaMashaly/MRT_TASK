@@ -29,7 +29,7 @@
 #define E_OK           0x01
 #define E_NOT_OK       0x00
 
-#define NULL           0x00
+#define NULL           ((void*)0)
 /*section : Macro Function Declarations */
 
 /*section : Data Type Declarations */
